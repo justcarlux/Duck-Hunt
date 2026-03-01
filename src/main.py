@@ -170,18 +170,20 @@ class DuckHuntGame(GameBase):
         
         if self.mi_mira: self.mi_mira.update()
 
-    def render(self, surface: pygame.Surface) -> None:
-        if self.fondo: surface.blit(self.fondo, (0, 0))
+    def render(self) -> None:
+        if self.fondo:
+            self.surface.blit(self.fondo, (0, 0))
         
         if self.mostrar_anuncio_ronda:
             if self.fuente_grande:
                 txt = self.fuente_grande.render(f"ROUND {self.ronda_actual}", False, (255, 255, 255))
-                surface.blit(txt, txt.get_rect(center=(BASE_WIDTH//2, BASE_HEIGHT//2)))
+                self.surface.blit(txt, txt.get_rect(center=(BASE_WIDTH//2, BASE_HEIGHT//2)))
             return 
 
-        for pato in self.mis_patos: surface.blit(pato.image, pato.rect)
-        self._dibujar_ui(surface)
-        if self.mi_mira: self.mi_mira.dibujar(surface)
+        for pato in self.mis_patos:
+            self.surface.blit(pato.image, pato.rect)
+        self._dibujar_ui(self.surface)
+        if self.mi_mira: self.mi_mira.dibujar(self.surface)
 
     def _dibujar_ui(self, surface: pygame.Surface):
         if self.fuente_pixel:

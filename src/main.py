@@ -196,12 +196,12 @@ class DuckHuntGame(GameBase):
 if __name__ == "__main__":
     # Configuramos los metadatos completos
     meta = (GameMeta()
-            .with_title("Duck Hunt Remake")
+            .with_title("Duck Hunt")
             .with_description("Derriba a todos los patos antes de que escapen de la pantalla") # <--- OBLIGATORIO
             .with_release_date("01/03/2026")
-            .with_authors(["Gabriel", "Milagros"])
+            .with_authors(["Gabriel Millan", "Milagros Rondon"])
             .add_tag("Arcade")
-            .with_group_number(2))
+            .with_group_number(6))
     
     # Creamos la instancia
     game = DuckHuntGame(meta)
